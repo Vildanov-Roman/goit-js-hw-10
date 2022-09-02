@@ -79,4 +79,4 @@ function cleanHtml() {
         countryInfo.innerHTML = '';
     }
 
-    // i try
+    // i tried
