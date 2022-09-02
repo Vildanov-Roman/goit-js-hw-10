@@ -7,7 +7,7 @@ const input = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 const  DEBOUNCE_DELAY = 300;
-// const country = document.querySelector('.country-name')
+
 
 input.addEventListener('input', debounce(elem => {
     const trim = input.value.trim();
@@ -23,20 +23,13 @@ input.addEventListener('input', debounce(elem => {
             Notiflix.Notify.failure('Oops, there is no country with that name');
         } else if (foundData.length >= 2 && foundData.length <= 10) {
         renderCountryList(foundData);
-        } else if (foundData.length === 1) {
-                    renderCountryInfo(foundData);
-                    }
-            }
-        )
+        } else  {
+            renderCountryInfo(foundData);
+        }
+        })
     }
     },  DEBOUNCE_DELAY)
 );
-
-// country.addEventListener('click', onCountry)
-
-// function onCountry() {
-//     country.value === input
-// }
 
 function renderCountryList(countries) {
     const markup = countries
@@ -48,7 +41,7 @@ function renderCountryList(countries) {
             
         </li>`
     })
-    .join('')
+    .join('------------------------------------')
     countryList.innerHTML = markup
 }
 
@@ -64,10 +57,22 @@ function renderCountryInfo(countries) {
             </li>`;
         })
         .join('');
-    countryList.innerHTML = markup;
-
-    
+    countryList.innerHTML = markup;    
 }
+
+// TODO доделать, чтоб при клике на страну, 
+// её название помещалось в input
+// и рендерилась карточка страны
+
+// countryList.addEventListener('click', onClick);
+
+// function onClick(e) {
+//     let countryItem = e.target.closest('.country-name');
+//     if(countryItem) {
+//         input.value = countryItem.textContent;
+//         countryList.innerHTML = '';
+//     }
+// }
 
 function cleanHtml() {
         countryList.innerHTML = '';
