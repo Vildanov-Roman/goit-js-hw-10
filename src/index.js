@@ -62,7 +62,7 @@ function renderCountryInfo(countries) {
 
 // TODO доделать, чтоб при клике на страну, 
 // её название помещалось в input
-// и рендерилась карточка страны
+// и рендерилась карточка страны!
 
 // countryList.addEventListener('click', onClick);
 
@@ -78,3 +78,5 @@ function cleanHtml() {
         countryList.innerHTML = '';
         countryInfo.innerHTML = '';
     }
+
+    // i try
